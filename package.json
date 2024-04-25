@@ -1,0 +1,13 @@
+{
+  "name": "onacademy_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-db": "docker-compose -f docker-compose.yml up -d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
