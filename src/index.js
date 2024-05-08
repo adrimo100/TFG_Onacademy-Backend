@@ -7,7 +7,7 @@ async function main() {
   try {
     await sequelizeInstance.authenticate(); //Verify connection to DB
     console.log("Connection has been established successfully.");
-    await sequelizeInstance.sync({ alter: true }); //Sincroniza las tablas. Alter cheque los cambios en los modelos y actualiza las tablas.
+    await sequelizeInstance.sync({ alter: true }); //Syncs the tables. 'Alter' checks the changes in the models y and updates the db tables if necessary.
     const models = await loadModels(); //Load Models
     console.log("Loaded Models -> ", models);
     const port = process.env.PORT || 8080;
