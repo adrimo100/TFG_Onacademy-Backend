@@ -1,25 +1,24 @@
 import { UUIDV4, DataTypes } from "sequelize";
 import sequelizeInstance from "../../../database/database.js";
 
-const User = sequelizeInstance.define(
-  "users",
+const Question = sequelizeInstance.define(
+  "questions",
   {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING(65),
+    description: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING(65),
+    answers: {
+      type: DataTypes.JSON,
       allowNull: false,
-      unique: true,
     },
-    password: {
-      type: DataTypes.STRING(20),
+    level: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
@@ -30,12 +29,12 @@ const User = sequelizeInstance.define(
   },
 );
 
-User.addHook("beforeCreate", (user) => {
-  user.id = UUIDV4();
+Question.addHook("beforeCreate", (question) => {
+  question.id = UUIDV4();
 });
 
-User.associate = (models) => {
-  User.hasMany(models["User-Course"], { foreignKey: "userId" });
+Question.associate = (models) => {
+  Question.belongsTo(models["Course"], { foreignKey: "courseId" });
 };
 
-export default User;
+export default Question;
