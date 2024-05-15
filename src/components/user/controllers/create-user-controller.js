@@ -23,9 +23,7 @@ const createUserController = async (user) => {
 
     const userCreated = await createUser(user);
 
-    const userResponse = generateUserCreateResponse(userCreated);
-
-    return userResponse;
+    return generateUserCreateResponse(userCreated);
   } catch (e) {
     console.log(e.message);
     throw e;
