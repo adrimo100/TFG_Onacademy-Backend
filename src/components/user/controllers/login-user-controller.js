@@ -18,7 +18,7 @@ const loginUserController = async (userCredentials) => {
     }
 
     if (user.password !== getHash256(userCredentials.password)) {
-      throw new ValidationError("Passwords is incorrect");
+      throw new ValidationError("Password is incorrect");
     }
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
