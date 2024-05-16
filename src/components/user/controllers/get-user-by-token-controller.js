@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { getByCriteria } from "../repository/users-repository.js";
-import getUserByCriteria from "../repository/criteria/getUserByCriteria.js";
+import getUserByCriteria from "../repository/criteria/get-user-by-criteria.js";
 import generateUserCreateResponse from "../services/generate-user-response-service.js";
 
 const getUserByTokenController = async (token) => {

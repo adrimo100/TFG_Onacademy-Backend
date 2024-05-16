@@ -1,5 +1,5 @@
 import { getByCriteria } from "../repository/users-repository.js";
-import getUserByCriteria from "../repository/criteria/getUserByCriteria.js";
+import getUserByCriteria from "../repository/criteria/get-user-by-criteria.js";
 import ValidationError from "../../../../libs/error-exceptions/validation-error.js";
 import jwt from "jsonwebtoken";
 import getHash256 from "../../../../libs/helpers/getHash256.js";
