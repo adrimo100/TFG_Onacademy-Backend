@@ -13,7 +13,7 @@ const UserCourse = sequelizeInstance.define(
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    userPunctuation: {
+    userScore: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },

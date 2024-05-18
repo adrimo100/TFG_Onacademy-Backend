@@ -21,7 +21,7 @@ const Course = sequelizeInstance.define(
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    maxPunctuation: {
+    maxScore: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

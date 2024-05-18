@@ -9,6 +9,6 @@ export const createCourse = async (course) => {
   }
 };
 
-export const getByCriteria = async (criteria) => {
+export const getCourse = async (criteria) => {
   return await findByCriteria(criteria);
 };

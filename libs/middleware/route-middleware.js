@@ -6,7 +6,7 @@ const errorRouteHandler = (fn, verifyToken = false) => {
   return async (req, res, next) => {
     try {
       if (verifyToken) {
-        const token = req.headers.authorization.split(" ")[1];
+        const token = req.headers.authorization?.split(" ")[1];
 
         console.log(req.headers.authorization);
 

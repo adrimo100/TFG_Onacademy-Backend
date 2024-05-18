@@ -1,4 +1,4 @@
-import { getByCriteria } from "../repository/users-repository.js";
+import { getUser } from "../repository/users-repository.js";
 import getUserByCriteria from "../repository/criteria/get-user-by-criteria.js";
 import ValidationError from "../../../../libs/error-exceptions/validation-error.js";
 import jwt from "jsonwebtoken";
@@ -7,7 +7,7 @@ import generateUserCreateResponse from "../services/generate-user-response-servi
 
 const loginUserController = async (userCredentials) => {
   try {
-    const user = await getByCriteria(
+    const user = await getUser(
       getUserByCriteria({
         email: userCredentials.email,
       }),

@@ -9,6 +9,14 @@ export const createUserCourse = async (userCourse) => {
   }
 };
 
-export const getByCriteria = async (criteria) => {
+export const getUserCourse = async (criteria) => {
   return await findByCriteria(criteria);
+};
+
+export const deleteUserCourse = async (userCourse) => {
+  try {
+    return await UserCourse.delete(userCourse);
+  } catch (err) {
+    throw err;
+  }
 };
