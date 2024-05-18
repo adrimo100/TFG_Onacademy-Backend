@@ -29,7 +29,6 @@ router.post(
 router.get(
   "/token/:token",
   errorHandler(async (req, res) => {
-    console.log(req.params.token);
     const user = await getUserByTokenController(req.params.token);
 
     res.status(200).send(user);

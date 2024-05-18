@@ -4,6 +4,7 @@ import errorHandler from "../../../../libs/middleware/route-middleware.js";
 import {
   getAllSubjectsController,
   createSubjectController,
+  getSubjectByIdController,
 } from "../controllers/index.js";
 
 const router = Router();
@@ -23,6 +24,15 @@ router.get(
     const subjetcs = await getAllSubjectsController();
 
     res.status(200).send(subjetcs);
+  }),
+);
+
+router.get(
+  "/:subjectId",
+  errorHandler(async (req, res) => {
+    const subject = await getSubjectByIdController(req.params.subjectId);
+
+    res.status(200).send(subject);
   }),
 );
 
