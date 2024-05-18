@@ -1,6 +1,9 @@
 import { Router } from "express";
 import errorRouteHandler from "../../../../libs/middleware/route-middleware.js";
-import { createCourseController } from "../controllers/index.js";
+import {
+  createCourseController,
+  getAllCoursesBySubjectId,
+} from "../controllers/index.js";
 
 const router = Router();
 
@@ -11,6 +14,15 @@ router.post(
 
     res.status(201).send(course);
   }, true),
+);
+
+router.get(
+  "/subject/:subjectId",
+  errorRouteHandler(async (req, res) => {
+    const courses = await getAllCoursesBySubjectId(req.params.subjectId);
+
+    res.status(200).send(courses);
+  }),
 );
 
 export default router;
