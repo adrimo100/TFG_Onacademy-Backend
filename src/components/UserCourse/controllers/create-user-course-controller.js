@@ -23,8 +23,9 @@ const createUserCourseController = async (userCourse, userId, courseId) => {
 
     validateCreateUserCourse(userCourse);
 
-    course.userId = userId;
-    course.courseId = courseId;
+    userCourse.userId = userId;
+    userCourse.courseId = courseId;
+    userCourse.userScore = course.userScore || 0;
 
     const newUserCourse = await createUserCourse(userCourse);
 

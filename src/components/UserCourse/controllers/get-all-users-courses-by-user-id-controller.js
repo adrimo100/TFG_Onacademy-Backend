@@ -13,7 +13,7 @@ const getAllUsersCoursesByUserIdController = async (userId) => {
 
     validateModelRequested(user, userId);
 
-    return await getUserCourse(getUsersCoursesByCriteria({ id: userId }));
+    return await getUserCourse(getUsersCoursesByCriteria({ userId: userId }));
   } catch (err) {
     console.error(err);
     throw err;
