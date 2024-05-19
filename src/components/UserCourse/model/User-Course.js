@@ -21,7 +21,7 @@ const UserCourse = sequelizeInstance.define(
   {
     sequelizeInstance,
     underscored: true,
-    paranoid: true,
+    paranoid: false,
   },
 );
 

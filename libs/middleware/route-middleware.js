@@ -14,10 +14,17 @@ const errorRouteHandler = (fn, verifyToken = false) => {
           throw new ValidationError("Not authorized", 401);
         }
 
-        const isTokenValid = jwt.verify(token, process.env.JWT_SECRET);
-
-        if (!isTokenValid) {
-          throw new ValidationError("Not authorized", 401);
+        try {
+          jwt.verify(token, process.env.JWT_SECRET);
+        } catch (err) {
+          if (
+            err.name === "TokenExpiredError" ||
+            err.name === "JsonWebTokenError"
+          ) {
+            throw new ValidationError("Not authorized", 401);
+          } else {
+            throw err;
+          }
         }
       }
 

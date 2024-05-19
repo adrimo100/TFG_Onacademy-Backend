@@ -9,7 +9,7 @@ const Question = sequelizeInstance.define(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    description: {
+    statement: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

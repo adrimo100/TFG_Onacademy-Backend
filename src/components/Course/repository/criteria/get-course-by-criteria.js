@@ -1,6 +1,6 @@
 import Course from "../../model/Course.js";
 
-const gerCourseByCriteria = (whereParams = {}) => {
+const getCourseByCriteria = (whereParams = {}) => {
   return {
     model: Course,
     queryType: "findOne",
@@ -10,4 +10,4 @@ const gerCourseByCriteria = (whereParams = {}) => {
   };
 };
 
-export default gerCourseByCriteria;
+export default getCourseByCriteria;
