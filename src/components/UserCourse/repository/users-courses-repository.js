@@ -21,9 +21,9 @@ export const updateUserCourse = async (userCourse) => {
   }
 };
 
-export const deleteUserCourse = async (userCourse) => {
+export const deleteUserCourse = async (userCourseId) => {
   try {
-    return await UserCourse.delete(userCourse);
+    return await UserCourse.destroy({ where: { id: userCourseId } });
   } catch (err) {
     throw err;
   }

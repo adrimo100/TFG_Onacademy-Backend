@@ -3,7 +3,7 @@ import {
   deleteUserCourse,
   getUserCourse,
 } from "../repository/users-courses-repository.js";
-import getUserCourseByCriteria from "../repository/criteria/get-users-courses-by-criteria.js";
+import getUserCourseByCriteria from "../repository/criteria/get-user-course-by-criteria.js";
 import validateModelRequested from "../../../../libs/helpers/validateModelRequested.js";
 
 const deleteUserCourseController = async (userCourseId) => {
@@ -14,9 +14,11 @@ const deleteUserCourseController = async (userCourseId) => {
       getUserCourseByCriteria({ id: userCourseId }),
     );
 
-    validateModelRequested(userCourse, userCourseId);
+    validateModelRequested(userCourse.dataValues, userCourseId);
 
-    return await deleteUserCourse(userCourse);
+    console.log(userCourse.dataValues.id);
+
+    return await deleteUserCourse(userCourse.dataValues.id);
   } catch (err) {
     console.log(err);
     throw err;
