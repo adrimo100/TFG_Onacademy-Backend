@@ -4,6 +4,7 @@ import {
   createUserCourseController,
   deleteUserCourseController,
   getAllUsersCoursesByUserIdController,
+  getUserCourseByUserAndCourseController,
 } from "../controllers/index.js";
 
 const router = Router();
@@ -39,6 +40,18 @@ router.get(
 
     res.status(200).send(userCourses);
   }, true),
+);
+
+router.get(
+  "/users/:userId/course/:courseId",
+  errorRouteHandler(async (req, res) => {
+    const userCourse = await getUserCourseByUserAndCourseController(
+      req.params.userId,
+      req.params.courseId,
+    );
+
+    res.status(200).send(userCourse);
+  }),
 );
 
 export default router;
