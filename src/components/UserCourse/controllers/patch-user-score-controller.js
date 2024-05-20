@@ -7,6 +7,8 @@ import getUserCourseByCriteria from "../repository/criteria/get-user-course-by-c
 import validateModelRequested from "../../../../libs/helpers/validateModelRequested.js";
 
 const patchUserScoreController = async (newUserScore, userCourseId) => {
+  console.log(newUserScore);
+
   validateUUID(userCourseId);
 
   const userCourse = await getUserCourse(
@@ -15,11 +17,17 @@ const patchUserScoreController = async (newUserScore, userCourseId) => {
 
   validateModelRequested(userCourse, userCourseId);
 
-  userCourse.userScore = newUserScore;
+  userCourse.dataValues.userScore = newUserScore;
 
-  const userCourseUpdated = await updateUserCourse(userCourse);
+  await updateUserCourse(userCourse.dataValues);
 
-  return userCourseUpdated.dataValues;
+  const updateUserCourseData = await getUserCourse(
+    getUserCourseByCriteria({ id: userCourseId }),
+  );
+
+  console.log(updateUserCourseData.dataValues);
+
+  return updateUserCourseData.dataValues;
 };
 
 export default patchUserScoreController;

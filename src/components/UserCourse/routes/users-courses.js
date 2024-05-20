@@ -56,10 +56,10 @@ router.get(
 );
 
 router.patch(
-  "/:userCourseId",
+  "/:userCourseId/score/:scoreNumber",
   errorRouteHandler(async (req, res) => {
     const userCourse = await patchUserCourseController(
-      req.body.newUserScore,
+      req.params.scoreNumber,
       req.params.userCourseId,
     );
 

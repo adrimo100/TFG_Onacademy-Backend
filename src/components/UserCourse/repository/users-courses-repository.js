@@ -15,7 +15,9 @@ export const getUserCourse = async (criteria) => {
 
 export const updateUserCourse = async (userCourse) => {
   try {
-    return await UserCourse.save(userCourse);
+    return await UserCourse.update(userCourse, {
+      where: { id: userCourse.id },
+    });
   } catch (err) {
     throw err;
   }
